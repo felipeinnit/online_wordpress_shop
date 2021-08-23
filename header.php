@@ -25,35 +25,29 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'alterego' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$alterego_description = get_bloginfo( 'description', 'display' );
-			if ( $alterego_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $alterego_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'alterego' ); ?></button>
+	<header id="masthead" class="site-header flex " style="<?php category_header_background(); ?>">
+		
+		<nav id="site-navigation" class="main-navigation flex flex-auto items-end relative">
+		
+		<a class="absolute top-0 left-0 logo" href="<?php echo get_site_url(); ?>">
+			<img src="<?php echo get_template_directory_uri() . '/images/alter-ego-logo.svg'; ?>" class="db" alt="">
+		</a>
+		
 			<?php
 			wp_nav_menu(
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
+					'menu_class'        => 'main-menu ma0 pa0 list'
 				)
 			);
 			?>
 		</nav><!-- #site-navigation -->
+
+
+		<div class="site-branding">
+			<!-- Remember the image ID -->
+			<img src="<?php get_category_image('home'); ?>" class="featured-image db">
+	
+		</div><!-- .site-branding -->
 	</header><!-- #masthead -->
