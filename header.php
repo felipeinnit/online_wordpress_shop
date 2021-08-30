@@ -23,31 +23,30 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
+
+	<?php if(wc_notice_count()) : ?>
+		<!-- print notifications -->
+		<div class="pa3 tc">
+			<?php wc_print_notices(); ?>
+		</div>
+	<?php endif; ?>
+
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'alterego' ); ?></a>
 
+	<!-- conditional tag to check in wich page we are in -->
+<?php if(is_home() or is_product_category()) : ?>
+
 	<header id="masthead" class="site-header flex " style="<?php category_header_background(); ?>">
-		
-		<nav id="site-navigation" class="main-navigation flex flex-auto items-end relative">
-		
-		<a class="absolute top-0 left-0 logo" href="<?php echo get_site_url(); ?>">
-			<img src="<?php echo get_template_directory_uri() . '/images/alter-ego-logo.svg'; ?>" class="db" alt="">
-		</a>
-		
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-					'menu_class'        => 'main-menu ma0 pa0 list'
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
 
-
-		<div class="site-branding">
-			<!-- Remember the image ID -->
-			<img src="<?php get_category_image('home'); ?>" class="featured-image db">
-	
-		</div><!-- .site-branding -->
+		<?php get_template_part('template-parts/category-navegation'); ?>
+		<?php get_template_part('template-parts/featured-image'); ?>
+		
 	</header><!-- #masthead -->
+
+<?php elseif (!is_product()) : ?>
+
+	<?php get_template_part('template-parts/page-header'); ?>	
+
+<?php endif; ?>
+
+

@@ -21,31 +21,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
+	<header id="masthead" class="site-header flex " style="<?php single_header_background(); ?>">
 
-		<?php while ( have_posts() ) : ?>
-			<?php the_post(); ?>
+		<?php get_template_part('template-parts/category-navegation'); ?>
 
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+			<?php while ( have_posts() ) : ?>
+				<?php the_post(); ?>
 
-		<?php endwhile; // end of the loop. ?>
+				<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>
+			<?php endwhile; // end of the loop. ?>
+	</header>
+	
+	<?php get_template_part('template-parts/related-products'); ?>
 
 	<?php
 		/**

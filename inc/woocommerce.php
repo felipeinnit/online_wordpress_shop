@@ -224,6 +224,7 @@ function category_header_background() {
 	echo 'background-color: ' . $bg_color;
   }
 
+//   Remove from a page to display elsewhere
   remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 
   remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
@@ -239,6 +240,8 @@ function category_header_background() {
   remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
   remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+  remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10);
 
   function get_category_image($term) {
 	// run the get the category id function
@@ -259,3 +262,9 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 // remove the additonal info tabs
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+
+function single_header_background() {
+	$post_id->ID;
+	$bg_color = get_field('background_color', $post_id);
+	echo 'background-color: ' . $bg_color;
+  }

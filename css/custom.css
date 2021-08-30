@@ -97,6 +97,20 @@ body {
   font-size: 20px;
 }
 
+.single-product .product{
+  display: flex;
+  padding: 32px;
+}
+
+.woocommerce-products-gallery {
+  display: flex;
+}
+
+.single-product .summary {
+  max-width: 390px;
+  padding-left: 64px;
+}
+
 /* marquee effect */
 
 .woocommerce-products-header__title {
@@ -123,4 +137,16 @@ body {
   line-height: 1;
   font-size: 32px;
   padding: 32px;
+}
+
+/* Static Page Syles */
+
+.page-content{
+  max-width: 1220px;
+}
+
+.header-page{
+  padding: 32px 64px;
+  margin-bottom: 64px;
+  background-color: #fbbb28;
 }
