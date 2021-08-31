@@ -13,13 +13,12 @@ body {
 .site-header {
   background-color: #fb7915;
 }
+
+
 /* menu */
-.main-navigation {
-  margin: 32px 0 48px 64px;
-}
 .main-menu a {
   display: block;
-  font-size: 32px;
+  font-size: 20px;
   text-decoration: none;
   color: #fff;
   line-height: 1.5;
@@ -56,6 +55,7 @@ body {
   padding: 0px;
   margin: 0px;
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
 }
 
@@ -111,6 +111,11 @@ body {
   padding-left: 64px;
 }
 
+/* sale price */
+.price ins{
+  text-decoration: none;
+}
+
 /* marquee effect */
 
 .woocommerce-products-header__title {
@@ -135,8 +140,8 @@ body {
   display: block;
   animation: marquee 2s linear infinite;
   line-height: 1;
-  font-size: 32px;
-  padding: 32px;
+  font-size: 20px;
+  padding: 20px;
 }
 
 /* Static Page Syles */
@@ -149,4 +154,31 @@ body {
   padding: 32px 64px;
   margin-bottom: 64px;
   background-color: #fbbb28;
+}
+
+/* FOOTER */
+.site-footer a{
+  display: block;
+  text-decoration: none;
+  font-size: 16px;
+  color:#000;
+}
+
+.site-footer li {
+  margin: 0 1rem;
+}
+
+.site-footer li, .site-footer a:hover {
+  color: #fb7915;
+}
+
+/* RESPONSIVE */
+@media (min-width: 60em) {
+  .main-menu a {
+    font-size: 32px;
+  }
+  .marquee{
+    font-size: 32px;
+    padding: 32px;
+  }
 }
